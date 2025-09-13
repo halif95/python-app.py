@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Каталог комплектующих</h2>
+    
+    <div class="components-section">
+        <h3>Процессоры</h3>
+        <div class="components-grid">
+            {% for processor in processors %}
+            <div class="component-card">
+                <h4>{{ processor.name }}</h4>
+                <p>Ядер: {{ processor.cores }}, Потоков: {{ processor.threads }}</p>
+                <p>Частота: {{ processor.speed }}</p>
+                <p class="price">{{ processor.price }} руб.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="components-section">
+        <h3>Видеокарты</h3>
+        <div class="components-grid">
+            {% for gpu in gpus %}
+            <div class="component-card">
+                <h4>{{ gpu.name }}</h4>
+                <p>Память: {{ gpu.memory }}</p>
+                <p>Частота: {{ gpu.speed }}</p>
+                <p class="price">{{ gpu.price }} руб.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="components-section">
+        <h3>Системы охлаждения</h3>
+        <div class="components-grid">
+            {% for cooler in coolers %}
+            <div class="component-card">
+                <h4>{{ cooler.name }}</h4>
+                <p>Тип: {{ cooler.type }}</p>
+                <p>Уровень шума: {{ cooler.noise }}</p>
+                <p class="price">{{ cooler.price }} руб.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="components-section">
+        <h3>Корпуса</h3>
+        <div class="components-grid">
+            {% for case in cases %}
+            <div class="component-card">
+                <h4>{{ case.name }}</h4>
+                <p>Тип: {{ case.type }}</p>
+                <p>Вентиляторы: {{ case.fans }}</p>
+                <p class="price">{{ case.price }} руб.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="components-section">
+        <h3>Мониторы</h3>
+        <div class="components-grid">
+            {% for monitor in monitors %}
+            <div class="component-card">
+                <h4>{{ monitor.name }}</h4>
+                <p>Размер: {{ monitor.size }}</p>
+                <p>Разрешение: {{ monitor.resolution }}</p>
+                <p>Частота: {{ monitor.refresh_rate }}</p>
+                <p class="price">{{ monitor.price }} руб.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

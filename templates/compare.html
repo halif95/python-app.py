@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Сравнение комплектующих</h2>
+    
+    <div class="category-selector">
+        <h3>Выберите категорию:</h3>
+        <div class="categories">
+            <a href="{{ url_for('compare', category='processors') }}" class="{% if category == 'processors' %}active{% endif %}">Процессоры</a>
+            <a href="{{ url_for('compare', category='gpus') }}" class="{% if category == 'gpus' %}active{% endif %}">Видеокарты</a>
+            <a href="{{ url_for('compare', category='coolers') }}" class="{% if category == 'coolers' %}active{% endif %}">Охлаждение</a>
+            <a href="{{ url_for('compare', category='cases') }}" class="{% if category == 'cases' %}active{% endif %}">Корпуса</a>
+            <a href="{{ url_for('compare', category='monitors') }}" class="{% if category == 'monitors' %}active{% endif %}">Мониторы</a>
+        </div>
+    </div>
+    
+    <div class="comparison-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Модель</th>
+                    {% if category == 'processors' %}
+                        <th>Ядра</th>
+                        <th>Потоки</th>
+                        <th>Частота</th>
+                    {% elif category == 'gpus' %}
+                        <th>Память</th>
+                        <th>Частота</th>
+                    {% elif category == 'coolers' %}
+                        <th>Тип</th>
+                        <th>Шум</th>
+                    {% elif category == 'cases' %}
+                        <th>Тип</th>
+                        <th>Вентиляторы</th>
+                    {% elif category == 'monitors' %}
+                        <th>Размер</th>
+                        <th>Разрешение</th>
+                        <th>Частота</th>
+                    {% endif %}
+                    <th>Цена</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for component in components %}
+                <tr>
+                    <td>{{ component.name }}</td>
+                    {% if category == 'processors' %}
+                        <td>{{ component.cores }}</td>
+                        <td>{{ component.threads }}</td>
+                        <td>{{ component.speed }}</td>
+                    {% elif category == 'gpus' %}
+                        <td>{{ component.memory }}</td>
+                        <td>{{ component.speed }}</td>
+                    {% elif category == 'coolers' %}
+                        <td>{{ component.type }}</td>
+                        <td>{{ component.noise }}</td>
+                    {% elif category == 'cases' %}
+                        <td>{{ component.type }}</td>
+                        <td>{{ component.fans }}</td>
+                    {% elif category == 'monitors' %}
+                        <td>{{ component.size }}</td>
+                        <td>{{ component.resolution }}</td>
+                        <td>{{ component.refresh_rate }}</td>
+                    {% endif %}
+                    <td>{{ component.price }} руб.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

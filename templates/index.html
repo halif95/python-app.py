@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <div class="container">
+        <h2>Собери свой идеальный ПК</h2>
+        <p>Сравнивай комплектующие и создавай оптимальные сборки</p>
+        <a href="{{ url_for('build') }}" class="btn">Начать сборку</a>
+    </div>
+</div>
+
+<div class="features">
+    <div class="container">
+        <h2>Почему выбирают нас</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <h3>Широкий выбор</h3>
+                <p>Тысячи комплектующих от ведущих производителей</p>
+            </div>
+            <div class="feature">
+                <h3>Удобное сравнение</h3>
+                <p>Сравнивайте характеристики и цены различных компонентов</p>
+            </div>
+            <div class="feature">
+                <h3>Простая сборка</h3>
+                <p>Создавайте и сохраняйте свои конфигурации ПК</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="categories">
+    <div class="container">
+        <h2>Категории комплектующих</h2>
+        <div class="category-grid">
+            <a href="{{ url_for('compare', category='processors') }}" class="category">
+                <h3>Процессоры</h3>
+                <p>Сердце вашего компьютера</p>
+            </a>
+            <a href="{{ url_for('compare', category='gpus') }}" class="category">
+                <h3>Видеокарты</h3>
+                <p>Мощь для игр и рендеринга</p>
+            </a>
+            <a href="{{ url_for('compare', category='coolers') }}" class="category">
+                <h3>Охлаждение</h3>
+                <p>Поддерживайте оптимальную температуру</p>
+            </a>
+            <a href="{{ url_for('compare', category='cases') }}" class="category">
+                <h3>Корпуса</h3>
+                <p>Стильный дом для ваших компонентов</p>
+            </a>
+            <a href="{{ url_for('compare', category='monitors') }}" class="category">
+                <h3>Мониторы</h3>
+                <p>Погрузитесь в визуальный опыт</p>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

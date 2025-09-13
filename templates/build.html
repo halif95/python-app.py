@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Сборка ПК</h2>
+    
+    <div class="build-container">
+        <div class="components-selector">
+            <h3>Выберите компоненты:</h3>
+            
+            <div class="component-group">
+                <h4>Процессор</h4>
+                <select>
+                    {% for processor in processors %}
+                    <option value="{{ processor.id }}">{{ processor.name }} - {{ processor.price }} руб.</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="component-group">
+                <h4>Видеокарта</h4>
+                <select>
+                    {% for gpu in gpus %}
+                    <option value="{{ gpu.id }}">{{ gpu.name }} - {{ gpu.price }} руб.</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="component-group">
+                <h4>Охлаждение</h4>
+                <select>
+                    {% for cooler in coolers %}
+                    <option value="{{ cooler.id }}">{{ cooler.name }} - {{ cooler.price }} руб.</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="component-group">
+                <h4>Корпус</h4>
+                <select>
+                    {% for case in cases %}
+                    <option value="{{ case.id }}">{{ case.name }} - {{ case.price }} руб.</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="component-group">
+                <h4>Монитор</h4>
+                <select>
+                    {% for monitor in monitors %}
+                    <option value="{{ monitor.id }}">{{ monitor.name }} - {{ monitor.price }} руб.</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <button class="btn">Сохранить сборку</button>
+        </div>
+        
+        <div class="build-summary">
+            <h3>Ваша сборка</h3>
+            <div class="summary-list">
+                <div class="summary-item">
+                    <span>Процессор:</span>
+                    <span>Не выбрано</span>
+                </div>
+                <div class="summary-item">
+                    <span>Видеокарта:</span>
+                    <span>Не выбрано</span>
+                </div>
+                <div class="summary-item">
+                    <span>Охлаждение:</span>
+                    <span>Не выбрано</span>
+                </div>
+                <div class="summary-item">
+                    <span>Корпус:</span>
+                    <span>Не выбрано</span>
+                </div>
+                <div class="summary-item">
+                    <span>Монитор:</span>
+                    <span>Не выбрано</span>
+                </div>
+                <div class="summary-total">
+                    <span>Итого:</span>
+                    <span>0 руб.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
